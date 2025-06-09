@@ -1,0 +1,106 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#transaction-form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+#transaction-form input[type="text"],
+#transaction-form input[type="number"],
+#transaction-form select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+#transaction-form button[type="submit"] {
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#transaction-form button[type="submit"]:hover {
+  background-color: #4cae4c;
+}
+
+#transaction-list {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  max-width: 500px;
+}
+
+#transaction-list li {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+#transaction-list li span {
+  flex-grow: 1;
+}
+
+#transaction-list li .amount {
+  font-weight: bold;
+  margin-left: 15px;
+}
+
+#transaction-list li.entrada .amount {
+  color: green;
+}
+
+#transaction-list li.saída .amount {
+  color: red;
+}
+
+#balance {
+  font-size: 1.2em;
+  margin-top: 20px;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Estilos responsivos */
+@media (max-width: 600px) {
+  #transaction-form {
+    grid-template-columns: 1fr;
+  }
+
+  #transaction-form button[type="submit"] {
+    grid-column: 1 / 2;
+  }
+}
