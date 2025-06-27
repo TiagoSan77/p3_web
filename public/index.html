@@ -1,11 +1,117 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Controle de Saldo</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Reservas de Mesa</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      margin: 20px 0;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    input[type="text"],
+    input[type="number"],
+    input[type="datetime-local"],
+    input[type="tel"],
+    select {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .reservation-list {
+      margin-top: 20px;
+    }
+    .reservation-item {
+      background: #fff;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+    .reservation-item h3 {
+      margin: 0;
+    }
+    .reservation-item p {
+      margin: 5px 0;
+    }
+    .delete-button {
+      background-color: #f44336;
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .delete-button:hover {
+      background-color: #e53935;
+    }
+  </style>
 </head>
 <body>
+  <h1>Sistema de Reservas de Mesa</h1>
+
+  <!-- Formulário para criar uma nova reserva -->
+  <form id="createReservationForm">
+    <h2>Criar Reserva</h2>
+    <input type="text" id="nomeCliente" placeholder="Nome do Cliente" required />
+    <input type="number" id="numeroMesa" placeholder="Número da Mesa" required />
+    <input type="datetime-local" id="dataHoraReserva" required />
+    <select id="status">
+      <option value="reservado">Reservado</option>
+      <option value="ocupado">Ocupado</option>
+      <option value="disponível">Disponível</option>
+    </select>
+    <input type="tel" id="contatoCliente" placeholder="Contato do Cliente" required />
+    <button type="submit">Criar Reserva</button>
+  </form>
+
+  <!-- Formulário para atualizar uma reserva -->
+  <form id="updateReservationForm">
+    <h2>Atualizar Reserva</h2>
+    <select id="updateNomeCliente" required>
+      <option value="">Selecione um cliente</option>
+    </select>
+    <select id="updateStatus" required>
+      <option value="reservado">Reservado</option>
+      <option value="ocupado">Ocupado</option>
+      <option value="disponível">Disponível</option>
+    </select>
+    <input type="tel" id="updateContato" placeholder="Novo Contato do Cliente" required />
+    <button type="submit">Atualizar Reserva</button>
+  </form>
+
+  <!-- Lista de reservas -->
+  <div class="reservation-list">
+    <h2>Lista de Reservas</h2>
+    <div id="reservationsContainer"></div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
